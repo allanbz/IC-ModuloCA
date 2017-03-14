@@ -12,6 +12,12 @@ public class MovimentacaoFinanceira {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+	public String getJustificativa() {
+		return justificativa;
+	}
+	public void setJustificativa(String justificativa) {
+		this.justificativa = justificativa;
+	}
 	public GregorianCalendar getDataHora() {
 		return dataHora;
 	}
