@@ -8,7 +8,6 @@ public class ModuloCA {
 	public static void main(String[] args) {
 		
 		//aqui fica apenas o menu inicial
-		
 	}
 
 }
