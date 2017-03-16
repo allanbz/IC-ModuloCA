@@ -1,6 +1,6 @@
 # IC-ModuloCA
 MÃ³dulo do Centro AcadÃªmico para Sistema do IC.
 
-# Requisitos para o módulo de Notificação
-    Necessita a instalação da biblioteca JavaMail, encontrada em:
+# Requisitos para o mÃ³dulo de NotificaÃ§Ã£o
+    Necessita a instalaÃ§Ã£o da biblioteca JavaMail, encontrada em:
     https://java.net/projects/javamail/pages/Home
