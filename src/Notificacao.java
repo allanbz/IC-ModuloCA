@@ -1,8 +1,8 @@
 
 public class Notificacao {
 	
-	private String titulo;
-	private String mensagem;
+	protected String titulo;
+	protected String mensagem;
 
 	public String getTitulo() {
 		return titulo;
@@ -19,5 +19,7 @@ public class Notificacao {
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 	}
+	
+	
 	
 }
