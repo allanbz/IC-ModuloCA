@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Membro {
@@ -46,22 +47,21 @@ public class Membro {
 		this.email = email;
 	}
 	
-	//implementar metodos de: adicao, edicao, remocao e consulta de membro
-	//preparar relatorio de lista de membros e seus dados
+	//TODO: relatorio e ordenacao do arraylist
 	
 	public void adicionarMembro() {
 		
 		Scanner scanner = new Scanner(System.in);
 		Boolean verificador = true;
 		
-		System.out.println("TELA DE CADASTRO\n");
+		System.out.println("\nTELA DE CADASTRO\n");
 		
 		while(verificador) {
 			System.out.print("Nome: ");
 			String nome = scanner.nextLine();
 			
 			if(nome != null && !nome.isEmpty()) {
-				setNome(nome);
+				this.setNome(nome);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -73,7 +73,7 @@ public class Membro {
 			String matricula = scanner.nextLine();
 			
 			if(matricula != null && !matricula.isEmpty()) {
-				setMatricula(matricula);
+				this.setMatricula(matricula);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -85,7 +85,7 @@ public class Membro {
 			String curso = scanner.nextLine();
 			
 			if(curso != null && !curso.isEmpty()) {
-				setCurso(curso);
+				this.setCurso(curso);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -97,7 +97,7 @@ public class Membro {
 			String periodoDeIngresso = scanner.nextLine();
 			
 			if(periodoDeIngresso != null && !periodoDeIngresso.isEmpty()) {
-				setPeriodoIngresso(periodoDeIngresso);
+				this.setPeriodoIngresso(periodoDeIngresso);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -109,7 +109,7 @@ public class Membro {
 			String cargo = scanner.nextLine();
 			
 			if(cargo != null && !cargo.isEmpty()) {
-				setCargo(cargo);
+				this.setCargo(cargo);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -121,7 +121,7 @@ public class Membro {
 			String email = scanner.nextLine();
 			
 			if(email != null && !email.isEmpty()) {
-				setEmail(email);
+				this.setEmail(email);
 				break;
 			} else {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
@@ -129,4 +129,159 @@ public class Membro {
 		}
 	}
 	
+	public void removerMembro(ArrayList <Membro> listaMembros) {
+		
+		System.out.println("\nTELA DE REMOÇÃO\n");
+		listarMembros(listaMembros);
+		
+		System.out.print("\nDigite o nome de quem deseja remover: ");
+		Scanner scanner = new Scanner(System.in);
+		String nome = scanner.nextLine();
+		
+		int flag = 0;
+		
+		for(Membro m : listaMembros) {
+			String membro = m.getNome();
+			
+			if(membro.equals(nome)) {
+				flag = 1;
+				
+				listaMembros.remove(m);
+				break;
+			}
+		}
+		
+		if(flag == 0) {
+			System.out.println("\nMembro não encontrado! Certifique-se de digitar o nome corretamente.");
+		}
+	}
+
+	public void consultarMembro(ArrayList <Membro> listaMembros) {
+		
+		System.out.println("\nTELA DE CONSULTA\n");
+		listarMembros(listaMembros);
+		
+		System.out.print("\nDigite o nome de quem deseja consultar: ");
+		Scanner scanner = new Scanner(System.in);
+		String nome = scanner.nextLine();
+		
+		int flag = 0;
+		
+		for(Membro m : listaMembros) {
+			String membro = m.getNome();
+			
+			if(membro.equals(nome)) {
+				flag = 1;
+				
+				m.printDados();
+				break;
+			}
+		}
+		
+		if(flag == 0) {
+			System.out.println("\nMembro não encontrado! Certifique-se de digitar o nome corretamente.");
+		}
+	}
+
+	public void editarMembro(ArrayList <Membro> listaMembros) {
+		
+		System.out.println("\nTELA DE EDIÇÃO\n");
+		listarMembros(listaMembros);
+		
+		System.out.print("\nDigite o nome de quem deseja editar: ");
+		Scanner scanner = new Scanner(System.in);
+		String nome = scanner.nextLine();
+		
+		int flag = 0;
+		int comando = 1;
+		
+		for(Membro m : listaMembros) {
+			String membro = m.getNome();
+			
+			if(membro.equals(nome)) {
+				flag = 1;
+				
+				while(comando != 0) {
+					Boolean verificador = false;
+					
+					while(!verificador) {
+						try {
+							System.out.println("\nQual informação deseja alterar:\n");
+							System.out.println("1-Nome\n2-Matricula\n3-Curso\n4-Período de Ingresso");
+							System.out.println("5-Cargo\n6-E-mail\n\n0-Sair\n");
+							System.out.print("Opção desejada: ");
+							
+							comando = scanner.nextInt();
+							scanner.nextLine();
+							verificador = true;
+						}
+						catch(java.util.InputMismatchException e) {
+							System.out.println("\nEntrada inválida! Digite um número inteiro!");
+							scanner.nextLine();
+						}
+					}
+					
+					switch(comando) {
+						case 0:
+							return;
+						case 1:
+							System.out.print("Nome: ");
+							String novoNome = scanner.nextLine();
+							m.setNome(novoNome);
+							break;
+						case 2:
+							System.out.print("Matrícula: ");
+							String novaMatricula = scanner.nextLine();
+							m.setMatricula(novaMatricula);
+							break;
+						case 3:
+							System.out.print("Curso: ");
+							String novoCurso = scanner.nextLine();
+							m.setCurso(novoCurso);
+							break;
+						case 4:
+							System.out.print("Semestre: ");
+							String novoSemestre = scanner.nextLine();
+							m.setPeriodoIngresso(novoSemestre);
+							break;
+						case 5:
+							System.out.print("Cargo: ");
+							String novoCargo = scanner.nextLine();
+							m.setCargo(novoCargo);
+							break;
+						case 6:
+							System.out.print("E-mail: ");
+							String novoEmail = scanner.nextLine();
+							m.setEmail(novoEmail);
+							break;
+						default:
+							System.out.println("\nDigite um número válido!");
+							break;
+					}
+				}
+				
+				break;
+			}
+		}
+		
+		if(flag == 0) {
+			System.out.println("\nMembro não encontrado! Certifique-se de digitar o nome corretamente.");
+		}
+	}
+
+	public void listarMembros(ArrayList <Membro> listaMembros) {
+		
+		System.out.println("Lista de Membros atualmente cadastrados:\n");
+		
+		for(Membro m : listaMembros) {
+			System.out.printf("%s, %s, %s\n", m.getNome(), m.getCurso(), m.getCargo());
+		}
+	}
+	
+	public void printDados() {
+		
+		System.out.println("\nDADOS DO MEMBRO\n");
+		System.out.printf("Nome: %s\nMatrícula: %s\nCurso: %s", this.getNome(), this.matricula, this.getCurso());
+		System.out.printf("\nSemestre: %s\nCargo: %s\nE-mail de contato: %s\n\n", this.getPeriodoIngresso(), this.getCargo(), this.getEmail());
+	}
 }
