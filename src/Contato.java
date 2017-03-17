@@ -24,10 +24,10 @@ public class Contato extends Notificacao {
 		this.dataHoraDeCriacao = dataHoraDeCriacao;
 	}
 	
-	public void enviar_Mensagem(String mensagem, String assunto) {
+	/*public void enviar_Mensagem(String mensagem, String assunto) {
       
 		Properties props = new Properties();
-        /** Parâmetros de conexão com servidor Gmail */
+        //** Parâmetros de conexão com servidor Gmail 
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -42,13 +42,13 @@ public class Contato extends Notificacao {
                          }
                     });
 
-        /** Ativa Debug para sessão */
+        // Ativa Debug para sessão
         session.setDebug(true);
 
         try {
 
               Message message = new MimeMessage(session);
-              message.setFrom(new InternetAddress("seuemail@gmail.com")); //Remetente
+              message.setFrom(new InternetAddress("Software IC")); //Remetente
 
               Address[] toUser = InternetAddress //Destinatário(s)
                          .parse("rwvlm@ic.ufal.br");  
@@ -56,7 +56,7 @@ public class Contato extends Notificacao {
               message.setRecipients(Message.RecipientType.TO, toUser);
               message.setSubject(assunto);//Assunto
               message.setText(mensagem);
-              /**Método para enviar a mensagem criada*/
+              //Método para enviar a mensagem criada
               Transport.send(message);
 
               System.out.println("\nE-mail enviado com sucesso!");
@@ -85,6 +85,8 @@ public class Contato extends Notificacao {
 		System.out.println("SUCESSO!");
 		
 	}
+	
+	*/
 	
 	//implementar metodos de: criacao, remocao e consulta de contato (ordenado por data)
 	//preparar relatorio com lista de contatos feitos no mes/semestre

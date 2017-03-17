@@ -12,6 +12,8 @@ public class Aviso extends Notificacao {
 		this.dataHoraDeCriacao = dataHoraDeCriacao;
 	}
 	
+	
+	
 	//implementar metodos de: criacao, remocao e consulta de avisos (ordenado por data)
 	//prepara relatorio com lista de avisos do mes/semestre
 }
