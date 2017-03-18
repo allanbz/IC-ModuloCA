@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Membro {
+public class Membro implements java.lang.Comparable<Membro> {
 	
 	private String nome;
 	private String matricula;
@@ -47,9 +48,17 @@ public class Membro {
 		this.email = email;
 	}
 	
-	//TODO: relatorio e ordenacao do arraylist
+	@Override
+    public int compareTo(Membro m) {
+        return this.nome.compareTo(m.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 	
-	public void adicionarMembro() {
+	public void adicionarMembro(ArrayList <Membro> listaMembros) {
 		
 		Scanner scanner = new Scanner(System.in);
 		Boolean verificador = true;
@@ -127,6 +136,9 @@ public class Membro {
 				System.out.println("\nPor favor, preencha o campo corretamente!\n");
 			}
 		}
+		
+		listaMembros.add(this);
+		Collections.sort(listaMembros);
 	}
 	
 	public void removerMembro(ArrayList <Membro> listaMembros) {
@@ -173,6 +185,7 @@ public class Membro {
 			if(membro.equals(nome)) {
 				flag = 1;
 				
+				System.out.println("\nDADOS DO MEMBRO\n");
 				m.printDados();
 				break;
 			}
@@ -223,6 +236,7 @@ public class Membro {
 					
 					switch(comando) {
 						case 0:
+							Collections.sort(listaMembros);
 							return;
 						case 1:
 							System.out.print("Nome: ");
@@ -271,7 +285,7 @@ public class Membro {
 
 	public void listarMembros(ArrayList <Membro> listaMembros) {
 		
-		System.out.println("Lista de Membros atualmente cadastrados:\n");
+		System.out.println("Lista de membros atualmente cadastrados:\n");
 		
 		for(Membro m : listaMembros) {
 			System.out.printf("%s, %s, %s\n", m.getNome(), m.getCurso(), m.getCargo());
@@ -280,8 +294,21 @@ public class Membro {
 	
 	public void printDados() {
 		
-		System.out.println("\nDADOS DO MEMBRO\n");
 		System.out.printf("Nome: %s\nMatrícula: %s\nCurso: %s", this.getNome(), this.matricula, this.getCurso());
 		System.out.printf("\nSemestre: %s\nCargo: %s\nE-mail de contato: %s\n\n", this.getPeriodoIngresso(), this.getCargo(), this.getEmail());
+	}
+	
+	public void relatorioDeMembros(ArrayList <Membro> listaMembros) {
+		
+		System.out.println("\n=================================");
+		System.out.println("\nDIRETÓRIO ACADÊMICO DE COMPUTAÇÃO");
+		System.out.println("\n=================================\n");
+		
+		for(Membro m : listaMembros) {
+			
+			m.printDados();
+			System.out.println("======================\n");
+		}
+		
 	}
 }

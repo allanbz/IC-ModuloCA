@@ -12,8 +12,8 @@ public class ModuloCA {
 		//testes para classe Membro
 		/*for(int i = 0; i < 3; i++) {
 			Membro m = new Membro();
-			m.adicionarMembro();
-			listaMembros.add(m);
+			m.adicionarMembro(listaMembros);
+
 		}
 		
 		Membro m = new Membro();
@@ -32,7 +32,8 @@ public class ModuloCA {
 		m.editarMembro(listaMembros);
 		
 		m.consultarMembro(listaMembros);
-		m.consultarMembro(listaMembros);*/
+		m.consultarMembro(listaMembros);
+		m.relatorioDeMembros(listaMembros);*/
 	}
 
 }
