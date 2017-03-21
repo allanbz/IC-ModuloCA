@@ -1,10 +1,10 @@
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class MovimentacaoFinanceira {
 
 	private double valor;	//positivo: deposito / negativo: saque
 	private String justificativa;
-	private GregorianCalendar dataHora;
+	private Date dataHora= new Date();
 	
 	public double getValor() {
 		return valor;
@@ -18,10 +18,10 @@ public class MovimentacaoFinanceira {
 	public void setJustificativa(String justificativa) {
 		this.justificativa = justificativa;
 	}
-	public GregorianCalendar getDataHora() {
+	public Date getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(GregorianCalendar dataHora) {
+	public void setDataHora(Date dataHora) {
 		this.dataHora = dataHora;
 	}
 	
