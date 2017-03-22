@@ -8,10 +8,10 @@ public class ModuloCA {
 	
 	public static void main(String[] args) {
 		
-		//TODO: menu inicial do modulo
 		Membro m = new Membro();
 		Notificacao n = new Notificacao();
 		Atividade a = new Atividade();
+		Financeiro f = new Financeiro();
 		
 		System.out.print("*********************************************\n");
 		System.out.println("Bem-vindo ao Diretório Acadêmio de Computação");
@@ -21,8 +21,6 @@ public class ModuloCA {
 		int comando = 1;
 		int comando1 = 1;
 		int comando2 = 1;
-		int comando3 = 1;
-		int comando4 = 1;
 		
 		while(comando != 0) {
 			Boolean verificador = false;
@@ -30,7 +28,7 @@ public class ModuloCA {
 			while(!verificador) {
 				try {
 					System.out.println("\nSelecione a área que deseja acessar:\n");
-					System.out.println("1-Membros\n2-Notificações e contatos\n3-Financeiro\n4-Relatórios\n");
+					System.out.println("1-Membros\n2-Notificações e contatos\n3-Financeiro\n");
 					System.out.print("Opção desejada: ");
 					
 					comando = scanner.nextInt();
@@ -49,7 +47,7 @@ public class ModuloCA {
 					while(!verificador1) {
 						try {
 							System.out.println("\nVocê deseja:\n");
-							System.out.println("1-Adicionar membro\n2-Editar membro\n3-Remover membro\n4-Consultar membro\n\n0-Voltar\n");
+							System.out.println("1-Adicionar membro\n2-Editar membro\n3-Remover membro\n4-Consultar membro\n5-Listar membros\n\n0-Voltar\n");
 							System.out.print("Opção desejada: ");
 							
 							comando1 = scanner.nextInt();
@@ -75,6 +73,9 @@ public class ModuloCA {
 							break;
 						case 4:
 							m.consultarMembro(listaMembros);
+							break;
+						case 5:
+							m.relatorioDeMembros(listaMembros);
 							break;
 						default:
 							System.out.println("\nDigite um número válido!");
@@ -122,83 +123,9 @@ public class ModuloCA {
 					break;
 					
 				case 3:
-					Boolean verificador3 = false;
-					
-					while(!verificador3) {
-						try {
-							System.out.println("\nVocê deseja:\n");
-							System.out.println("1-\n2-\n3-\n4-\n\n0-Voltar");
-							System.out.print("Opção desejada: ");
-							
-							comando3 = scanner.nextInt();
-							verificador3 = true;
-						}
-						catch(java.util.InputMismatchException e) {
-							System.out.println("\nEntrada inválida! Digite um número inteiro!");
-							scanner.nextLine();
-						}
-					}
-					
-					switch(comando3) {
-						case 0:
-							break;
-						case 1:
-							
-							break;
-						case 2:
-							
-							break;
-						case 3:
-							
-							break;
-						case 4:
-							
-							break;
-						default:
-							System.out.println("\nDigite um número válido!");
-							break;
-					}
+					f.inicializarFinaceiro();
 					break;
 					
-				case 4:
-					Boolean verificador4 = false;
-					
-					while(!verificador4) {
-						try {
-							System.out.println("\nVocê deseja:\n");
-							System.out.println("1-Relatório de membros\n2-\n3-\n4-\n\n0-Voltar\n");
-							System.out.print("Opção desejada: ");
-							
-							comando4 = scanner.nextInt();
-							verificador4 = true;
-						}
-						catch(java.util.InputMismatchException e) {
-							System.out.println("\nEntrada inválida! Digite um número inteiro!");
-							scanner.nextLine();
-						}
-					}
-					
-					switch(comando4) {
-						case 0:
-							break;
-						case 1:
-							m.relatorioDeMembros(listaMembros);
-							break;
-						case 2:
-							
-							break;
-						case 3:
-							
-							break;
-						case 4:
-							
-							break;
-						default:
-							System.out.println("\nDigite um número válido!");
-							break;
-					}
-					break;
-				
 				default:
 					System.out.println("\nDigite um número válido!");
 					break;

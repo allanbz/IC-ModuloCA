@@ -63,7 +63,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 		Scanner scanner = new Scanner(System.in);
 		Boolean verificador = true;
 		
-		System.out.println("\nTELA DE CADASTRO\n");
+		System.out.println("");
 		
 		while(verificador) {
 			System.out.print("Nome: ");
@@ -143,7 +143,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 	
 	public void removerMembro(ArrayList <Membro> listaMembros) {
 		
-		System.out.println("\nTELA DE REMOÇÃO\n");
+		System.out.println("");
 		listarMembros(listaMembros);
 		
 		System.out.print("\nDigite o nome de quem deseja remover: ");
@@ -170,7 +170,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 
 	public void consultarMembro(ArrayList <Membro> listaMembros) {
 		
-		System.out.println("\nTELA DE CONSULTA\n");
+		System.out.println("");
 		listarMembros(listaMembros);
 		
 		System.out.print("\nDigite o nome de quem deseja consultar: ");
@@ -185,7 +185,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 			if(membro.equals(nome)) {
 				flag = 1;
 				
-				System.out.println("\nDADOS DO MEMBRO\n");
+				System.out.println("");
 				m.printDados();
 				break;
 			}
@@ -198,7 +198,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 
 	public void editarMembro(ArrayList <Membro> listaMembros) {
 		
-		System.out.println("\nTELA DE EDIÇÃO\n");
+		System.out.println("");
 		listarMembros(listaMembros);
 		
 		System.out.print("\nDigite o nome de quem deseja editar: ");
@@ -288,7 +288,7 @@ public class Membro implements java.lang.Comparable<Membro> {
 		System.out.println("Lista de membros atualmente cadastrados:\n");
 		
 		for(Membro m : listaMembros) {
-			System.out.printf("%s, %s, %s\n", m.getNome(), m.getCurso(), m.getCargo());
+			System.out.printf("%s (%s), %s\n", m.getNome(), m.getCurso(), m.getCargo());
 		}
 	}
 	

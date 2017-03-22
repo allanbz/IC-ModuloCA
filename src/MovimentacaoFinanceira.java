@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class MovimentacaoFinanceira {
 
-	private double valor;	//positivo: deposito / negativo: saque
+	private double valor;
 	private String justificativa;
 	private Date dataHora= new Date();
 	
