@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Financeiro {
 	
-	private double saldo;
+	protected double saldo;
 	private ArrayList <MovimentacaoFinanceira> movimentacao = new ArrayList<MovimentacaoFinanceira>();
 	private Scanner input;
 	

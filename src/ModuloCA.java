@@ -11,7 +11,7 @@ public class ModuloCA {
 		Membro m = new Membro();
 		Notificacao n = new Notificacao();
 		Atividade a = new Atividade();
-		Financeiro f = new Financeiro();
+		Financeiro f = new FinanceiroProxy("admin", "admin");
 		
 		System.out.print("*********************************************\n");
 		System.out.println("Bem-vindo ao Diretório Acadêmio de Computação");
